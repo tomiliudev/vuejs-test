@@ -3,7 +3,7 @@
 // import VModel from '@/components/v-model/VModel.vue'
 // import ParentComponentVModel from '@/components/v-model/ParentComponentVModel.vue'
 // import ComposableTest from '@/components/composable/ComposableTest.vue'
-import AnimationTest from '@/components/AnimationTest.vue'
+import TransitionAnimation from '@/components/animationTest/TransitionAnimation.vue'
 </script>
 
 <template>
@@ -11,7 +11,7 @@ import AnimationTest from '@/components/AnimationTest.vue'
   <!-- <VModel /> -->
   <!-- <ParentComponentVModel /> -->
   <!-- <ComposableTest /> -->
-  <AnimationTest />
+  <TransitionAnimation />
 </template>
 
 <style scoped></style>
