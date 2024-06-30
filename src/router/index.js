@@ -1,4 +1,4 @@
-import { createMemoryHistory, createRouter } from 'vue-router'
+import { createWebHistory, createRouter } from 'vue-router'
 import HomeView from '@/components/vueRouterTest/HomeView.vue'
 import AboutView from '@/components/vueRouterTest/AboutView.vue'
 
@@ -8,7 +8,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createMemoryHistory(),
+  history: createWebHistory(), // <===ここがcreateMemoryHistoryからcreateWebHistoryに変更したら治った
   routes
 })
 
