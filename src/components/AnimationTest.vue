@@ -6,14 +6,15 @@ function beforeEnter(el) {
   console.log('beforeEnter', el)
   el.style.transform = 'translateX(30px)'
 }
+let enterIntervalId
 function enter(el, done) {
   console.log('enter', el)
   let translateXValue = 30
-  const intervalId = setInterval(() => {
+  enterIntervalId = setInterval(() => {
     translateXValue--
     el.style.transform = `translateX(${translateXValue}px)`
     if (translateXValue <= 0) {
-      clearInterval(intervalId)
+      clearInterval(enterIntervalId)
       done()
     }
   }, 20)
@@ -21,24 +22,35 @@ function enter(el, done) {
 function afterEnter(el) {
   console.log('afterEnter', el)
 }
+function enterCancelled(el) {
+  console.log('enterCanceled', el)
+  clearInterval(enterIntervalId)
+}
 
 function beforeLeave(el) {
   console.log('beforeLeave', el)
 }
+let leaveIntervalId
 function leave(el, done) {
   console.log('leave', el)
   let translateXValue = 0
-  const intervalId = setInterval(() => {
+  leaveIntervalId = setInterval(() => {
     translateXValue++
     el.style.transform = `translateX(${translateXValue}px)`
     if (translateXValue >= 30) {
-      clearInterval(intervalId)
+      clearInterval(leaveIntervalId)
       done() // done()を呼び出して明示的にアニメーションが終わることを伝える
     }
   }, 20)
 }
 function afterLeave(el) {
   console.log('afterLeave', el)
+}
+
+// v-showの時だけ有効（v-ifの時は無効、理由はアニメーションがenterからleaveまでは一つの要素になっていて、次のenterからは新しい要素になるため）
+function leaveCancelled(el) {
+  console.log('leaveCanceled', el)
+  clearInterval(leaveIntervalId)
 }
 </script>
 <template>
@@ -49,11 +61,13 @@ function afterLeave(el) {
     @before-enter="beforeEnter"
     @enter="enter"
     @after-enter="afterEnter"
+    @enter-cancelled="enterCancelled"
     @before-leave="beforeLeave"
     @leave="leave"
     @after-leave="afterLeave"
+    @leave-cancelled="leaveCancelled"
   >
-    <div v-if="isShow">Hello</div>
+    <div v-show="isShow">Hello</div>
   </Transition>
 </template>
 <style scoped>
