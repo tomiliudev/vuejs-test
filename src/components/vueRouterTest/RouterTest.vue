@@ -10,8 +10,9 @@ function toAbout() {
 </script>
 
 <template>
-  <RouterLink to="/?lang=ja#aaa">Home</RouterLink> |
+  <RouterLink to="/?lang=ja#aaa" replace>Home</RouterLink> |
   <RouterLink :to="{ path: '/about', query: { lang: 'ja' }, hash: '#bbb' }">About</RouterLink> |
-  <button @click="toAbout">About2</button>
+  <button @click="toAbout">About2</button> |
+  <button @click="$router.push({ path: '/about' })">About3</button>
   <RouterView />
 </template>
