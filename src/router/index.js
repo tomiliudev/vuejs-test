@@ -7,7 +7,12 @@ import NotFound from '@/components/vueRouterTest/NotFound.vue'
 const routes = [
   { path: '/', name: 'home', component: HomeView },
   { path: '/about', name: 'about', component: AboutView },
-  { path: '/blog/:id/:version', name: 'blog', component: BlogView },
+  {
+    path: '/blog/:id/:version',
+    name: 'blog',
+    props: true,
+    component: BlogView
+  },
   //   { path: '/blog/id-:id-number', name: 'blog', component: BlogView } // :id以外の部分は必須
   //   { path: '/blog/:id?', name: 'blog', component: BlogView } // パラメータを付けても付けなくてもいい
   //   { path: '/blog/:id+', name: 'blog', component: BlogView } // 1/2/3のようなURLをつくることができる

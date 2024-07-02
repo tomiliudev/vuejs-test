@@ -1,3 +1,15 @@
+<script setup>
+defineProps({
+  id: {
+    required: true,
+    type: String
+  },
+  version: {
+    required: true,
+    type: String
+  }
+})
+</script>
 <template>
   <h2>Blog(id: {{ $route.params.id }} )</h2>
   <p>version : {{ $route.params.version }}</p>
@@ -8,4 +20,6 @@
     }"
     >next</RouterLink
   >
+  <p>props id: {{ id }}</p>
+  <p>props version: {{ version }}</p>
 </template>
