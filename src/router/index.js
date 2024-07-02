@@ -2,6 +2,9 @@ import { createWebHistory, createRouter } from 'vue-router'
 import HomeView from '@/components/vueRouterTest/HomeView.vue'
 import AboutView from '@/components/vueRouterTest/AboutView.vue'
 import BlogView from '@/components/vueRouterTest/BlogView.vue'
+import ProfileView from '@/components/vueRouterTest/ProfileView.vue'
+import PostsView from '@/components/vueRouterTest/PostsView.vue'
+import LikesView from '@/components/vueRouterTest/LikesView.vue'
 import NotFound from '@/components/vueRouterTest/NotFound.vue'
 
 const routes = [
@@ -19,6 +22,23 @@ const routes = [
   //   { path: '/blog/:id*', name: 'blog', component: BlogView } // ?と+の合体版
   //   { path: '/blog/:id(\\d+)', name: 'blog', component: BlogView } // ()内は正規表現、例は数字が１文字以上
   //   { path: '/blog/:id(.+)', name: 'blog', component: BlogView } // ()内は正規表現、例は任意の文字が１文字以上
+  {
+    path: '/profile/:id',
+    name: 'profile',
+    component: ProfileView,
+    children: [
+      {
+        path: '', // profileにアクセスした時のデフォルトとしてpostsを表示したい場合、ここのpathを空文字にした上で、RouterLinkで親（profile）ではなく子（posts）を指定するとよい
+        name: 'posts',
+        component: PostsView
+      },
+      {
+        path: 'likes',
+        name: 'likes',
+        component: LikesView
+      }
+    ]
+  },
   {
     path: '/:catchAll(.*)*', // すべてのパスを受け付ける。パスの評価優先度はより詳細度の高いパスが優先される
     name: 'notFound',
