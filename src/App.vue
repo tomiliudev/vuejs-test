@@ -5,11 +5,12 @@
 // import ComposableTest from '@/components/composable/ComposableTest.vue'
 // import TransitionAnimation from '@/components/animationTest/TransitionAnimation.vue'
 // import TransitionGroupAnimation from '@/components/animationTest/TransitionGroupAnimation.vue'
-import RouterTest from '@/components/vueRouterTest/RouterTest.vue'
+// import RouterTest from '@/components/vueRouterTest/RouterTest.vue'
+import TransitionRouter from '@/components/vueRouterTest/TransitionRouter.vue'
 </script>
 
 <template>
-  <RouterTest />
+  <TransitionRouter />
 </template>
 
 <style scoped></style>
