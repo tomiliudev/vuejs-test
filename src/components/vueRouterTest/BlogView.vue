@@ -1,18 +1,19 @@
 <script setup>
-defineProps({
-  id: {
-    required: true,
-    type: String
-  },
-  version: {
-    required: true,
-    type: String
-  }
+import { onBeforeRouteUpdate, onBeforeRouteLeave } from 'vue-router'
+// params, query, hashなど変化がある度によばれる
+onBeforeRouteUpdate((to, from) => {
+  console.log('onBeforeRouteUpdate', to, from)
+})
+
+// ページから離れようとする時に呼ばれる
+onBeforeRouteLeave((to, from) => {
+  console.log('onBeforeRouteLeave', to, from)
+  // return window.confirm('ページを離れてもいいですか？')
 })
 </script>
 <template>
   <div>
-    <h2>Blog(id: {{ $route.params.id }} )</h2>
+    <h1>Blog(id: {{ $route.params.id }} )</h1>
     <p>version : {{ $route.params.version }}</p>
     <RouterLink
       :to="{
@@ -21,7 +22,5 @@ defineProps({
       }"
       >next</RouterLink
     >
-    <p>props id: {{ id }}</p>
-    <p>props version: {{ version }}</p>
   </div>
 </template>

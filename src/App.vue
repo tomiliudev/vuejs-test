@@ -1,17 +1,10 @@
-<script setup>
-// import ChooseFood from '@/components/chooseFood/ChooseFood.vue'
-// import VModel from '@/components/v-model/VModel.vue'
-// import ParentComponentVModel from '@/components/v-model/ParentComponentVModel.vue'
-// import ComposableTest from '@/components/composable/ComposableTest.vue'
-// import TransitionAnimation from '@/components/animationTest/TransitionAnimation.vue'
-// import TransitionGroupAnimation from '@/components/animationTest/TransitionGroupAnimation.vue'
-// import RouterTest from '@/components/vueRouterTest/RouterTest.vue'
-// import TransitionRouter from '@/components/vueRouterTest/TransitionRouter.vue'
-import ScrollTest from '@/components/vueRouterTest/ScrollTest/ScrollTest.vue'
-</script>
+<script setup></script>
 
 <template>
-  <ScrollTest />
+  <h1>Navigation Guard</h1>
+  <RouterLink :to="{ name: 'home' }">Home</RouterLink> |
+  <RouterLink :to="{ name: 'blog', params: { id: 1, version: 1 } }">Blog</RouterLink>
+  <RouterView />
 </template>
 
 <style scoped></style>
