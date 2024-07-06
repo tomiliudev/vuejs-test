@@ -6,11 +6,12 @@
 // import TransitionAnimation from '@/components/animationTest/TransitionAnimation.vue'
 // import TransitionGroupAnimation from '@/components/animationTest/TransitionGroupAnimation.vue'
 // import RouterTest from '@/components/vueRouterTest/RouterTest.vue'
-import TransitionRouter from '@/components/vueRouterTest/TransitionRouter.vue'
+// import TransitionRouter from '@/components/vueRouterTest/TransitionRouter.vue'
+import ScrollTest from '@/components/vueRouterTest/ScrollTest/ScrollTest.vue'
 </script>
 
 <template>
-  <TransitionRouter />
+  <ScrollTest />
 </template>
 
 <style scoped></style>
